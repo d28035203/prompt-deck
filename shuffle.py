@@ -7,7 +7,6 @@ import argparse, os, random, sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 TOPICS = os.path.join(HERE, "topics.txt")
 
-
 def load_topics():
     lines = []
     with open(TOPICS, "r") as f:
@@ -16,7 +15,6 @@ def load_topics():
             if line and not line.startswith("#"):
                 lines.append(line)
     return lines
-
 
 def main():
     p = argparse.ArgumentParser(description="Shuffle revision topics")
@@ -33,7 +31,6 @@ def main():
         print("  %d. %s" % (i, t))
     print("\nNo skipping. The exam does not skip.")
     return 0
-
 
 if __name__ == "__main__":
     sys.exit(main())
