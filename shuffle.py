@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""pyq-shuffle — random UPSC topic drill."""
+"""prompt-deck — random UPSC topic drill."""
 
 from __future__ import print_function
 import argparse, os, random, sys
