@@ -1,12 +1,12 @@
-# PYQ Shuffle
+# Prompt Deck
 
-Random **topic prompts** for UPSC prelims-style revision.
+Shuffle practice topic prompts so revision stays random and fair.
 
 ```bash
 python3 shuffle.py
 python3 shuffle.py --n 5
 ```
 
-Edit `topics.txt` with your own weak areas.
+Edit `topics.txt` with your own list.
 
-MIT · 2021
+MIT · practice project

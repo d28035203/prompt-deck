@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""prompt-deck — random UPSC topic drill."""
+"""prompt-deck — random exam topic drill."""
 
 from __future__ import print_function
 import argparse, os, random, sys
@@ -31,7 +31,7 @@ def main():
     print("Your unfair revision draw:\n")
     for i, t in enumerate(pick, 1):
         print("  %d. %s" % (i, t))
-    print("\nNo skipping. The UPSC does not skip.")
+    print("\nNo skipping. The exam does not skip.")
     return 0
 
 
