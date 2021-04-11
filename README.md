@@ -1,12 +1,20 @@
 # Prompt Deck
 
-Shuffle practice topic prompts so revision stays random and fair.
+Shuffle practice prompts so revision stays random. Edit `deck.txt` to add your own cards.
+
+## Usage
 
 ```bash
 python3 shuffle.py
-python3 shuffle.py --n 5
+python3 shuffle.py -n 3
+python3 shuffle.py --deck deck.txt --seed 7
 ```
 
-Edit `topics.txt` with your own list.
+## Deck format
 
-MIT · practice project
+- One prompt per line
+- Blank lines and `#` comments ignored
+
+## License
+
+MIT

@@ -1,0 +1,11 @@
+# One prompt per line. Lines starting with # are ignored.
+Explain a system design trade-off you made recently
+Implement rate limiting for an HTTP API
+Walk through how a TCP handshake works
+Debug a flaky CI pipeline
+Design a schema for a multi-tenant notes app
+Compare SQL vs document stores for session data
+Write a post-mortem for a deploy that went wrong
+Sketch a blue/green deploy strategy
+Explain JWT auth and refresh tokens
+Optimize a slow database query with EXPLAIN

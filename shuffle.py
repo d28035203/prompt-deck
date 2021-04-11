@@ -1,36 +1,47 @@
 #!/usr/bin/env python3
-"""prompt-deck — random exam topic drill."""
+"""prompt-deck — shuffle practice prompts from a topic file."""
+from __future__ import annotations
 
-from __future__ import print_function
-import argparse, os, random, sys
+import argparse
+import os
+import random
+import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-TOPICS = os.path.join(HERE, "topics.txt")
+DEFAULT_DECK = os.path.join(HERE, "deck.txt")
 
-def load_topics():
-    lines = []
-    with open(TOPICS, "r") as f:
-        for line in f:
+
+def load_deck(path: str) -> list[str]:
+    topics = []
+    with open(path, encoding="utf-8") as fh:
+        for line in fh:
             line = line.strip()
-            if line and not line.startswith("#"):
-                lines.append(line)
-    return lines
+            if not line or line.startswith("#"):
+                continue
+            topics.append(line)
+    return topics
 
-def main():
-    p = argparse.ArgumentParser(description="Shuffle revision topics")
-    p.add_argument("-n", type=int, default=3, help="how many topics (default 3)")
+
+def main() -> int:
+    p = argparse.ArgumentParser(description="Shuffle practice prompts")
+    p.add_argument("-n", type=int, default=5, help="how many prompts to draw")
+    p.add_argument("--deck", default=DEFAULT_DECK, help="path to deck file")
+    p.add_argument("--seed", type=int, default=None)
     args = p.parse_args()
-    topics = load_topics()
+
+    if args.seed is not None:
+        random.seed(args.seed)
+
+    topics = load_deck(args.deck)
     if not topics:
-        print("topics.txt is empty")
+        print("deck is empty", file=sys.stderr)
         return 1
-    n = max(1, min(args.n, len(topics)))
-    pick = random.sample(topics, n)
-    print("Your unfair revision draw:\n")
-    for i, t in enumerate(pick, 1):
-        print("  %d. %s" % (i, t))
-    print("\nNo skipping. The exam does not skip.")
+    n = min(args.n, len(topics))
+    picks = random.sample(topics, n)
+    for i, t in enumerate(picks, 1):
+        print(f"{i}. {t}")
     return 0
 
+
 if __name__ == "__main__":
-    sys.exit(main())
+    raise SystemExit(main())
